@@ -2,5 +2,6 @@
 
 module.exports = app => {
   app.get('/', 'home.index2');
-  app.get('/getArticleTypes','home.getArticleTypes')
+  app.resources('articles','/api/articles',app.controller.articles);
+  app.resources('articleType','/api/articletype',app.controller.articleType);
 };

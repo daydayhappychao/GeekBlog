@@ -4,8 +4,12 @@
   "description": "",
   "private": true,
   "dependencies": {
+    "cors": "^2.8.3",
     "egg": "^1.2.1",
+    "egg-cors": "^1.1.0",
     "egg-mongoose": "^2.1.0",
+    "egg-security": "^1.10.0",
+    "egg-validate": "^1.0.0",
     "koa-is-json": "^1.0.0",
     "mongoose": "^4.10.2"
   },

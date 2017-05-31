@@ -14,6 +14,7 @@ module.exports = app => {
         data:yield app.model.ArticleType.find({})
       }
       this.ctx.body = res;
+
     }
   }
   return HomeController;
