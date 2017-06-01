@@ -3,6 +3,9 @@
 module.exports = appInfo => {
   const config = {};
 
+
+  // config.middleware=['checkLogin'];
+
   // should change to your own
   config.keys = appInfo.name + '_1495538857414_698';
 
@@ -20,6 +23,18 @@ module.exports = appInfo => {
   config.validate = {
     enable: true,
     package: 'egg-validate',
-  }
+  };
+  config.view = {
+    mapping: {
+      '.ejs': 'ejs',
+    },
+  };
+  config.ejs = {
+
+  };
+  config.checkLogin={};
+  config.security = {
+  csrf: false
+}
   return config;
 };
