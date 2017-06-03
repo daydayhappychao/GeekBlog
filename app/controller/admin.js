@@ -1,9 +1,11 @@
 module.exports = app => {
   class AdminController extends app.Controller {
     * index() {
-        yield this.ctx.render('hello.ejs', { data: '1122' })
-        this.ctx.status = 200
-    
+      let articleTypes = yield this.ctx.model.ArticleType.find({});
+      console.log(articleTypes);
+      yield this.ctx.render('index.ejs', { articleTypes: articleTypes })
+      this.ctx.status = 200
+
     }
   }
   return AdminController;
