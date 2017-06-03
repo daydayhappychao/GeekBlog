@@ -299,7 +299,7 @@
                                     <div class="widget-statistic-value">
                                         <%= articleTypes[i].typeName%>
                                     </div>
-                                    <div class="widget-statistic-description" id="doc-prompt-toggle" style="cursor:pointer" data-id="<%= articleTypes[i]._id%>">
+                                    <div class="widget-statistic-description doc-prompt-toggle" id="" style="cursor:pointer" data-id="<%= articleTypes[i]._id%>">
                                         编辑
                                     </div>
                                     <span class="widget-statistic-icon am-icon-credit-card-alt"></span>
@@ -499,11 +499,23 @@
 </html>
 <script>
     $(function () {
-        $('#doc-prompt-toggle').on('click', function () {
+        $('.doc-prompt-toggle').on('click', function () {
+            var _id  = $(this).attr('data-id');
             $('#my-prompt').modal({
                 relatedTarget: this,
                 onConfirm: function (e) {
-                    $.post('/')
+                    $.ajax({
+                        url:'/api/articletype/:id',
+                        data:{
+                            id:_id,
+                            typeName:e.data
+                        },
+                        type:'PUT',
+                        dataType:'json',
+                        success:function(res){
+                            console.log(res)
+                        }
+                    })
                 },
                 onCancel: function (e) {
                     alert('不想说!');

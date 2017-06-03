@@ -21,5 +21,11 @@ exports.index = function* (ctx) {
 exports.new = function* () { };
 exports.show = function* () { };
 exports.edit = function* () { };
-exports.update = function* () { };
+
+exports.update = function* (ctx) { 
+  console.log('哈哈哈哈哈我调用了update');
+  ctx.body ='1111111'
+};
+
+
 exports.destroy = function* () { };
